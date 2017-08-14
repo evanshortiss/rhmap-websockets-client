@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Chat</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let msg of messages">
+      <h2>{{msg.text}}</h2>
+      <p>{{msg.firstname}} {{msg.lastname}} - {{msg.ts | date:'medium'}}</p>
+    </ion-item>
+  </ion-list>
+
+  <form (ngSubmit)="onTextSubmit()">
+    <ion-input
+      type="text"
+      name="message-text"
+      [(ngModel)]="textInput"
+      placeholder="Tap here to chat!">
+    </ion-input>
+  </form>
+</ion-content>

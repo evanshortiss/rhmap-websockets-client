@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>User Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label color="primary" stacked>Firstname</ion-label>
+    <ion-input
+      type="text"
+      name="firstname"
+      id="firstname"
+      required
+      minlength="2"
+      [(ngModel)]="firstname"
+      #fname="ngModel"
+      placeholder="Alex"
+      >
+    </ion-input>
+  </ion-item>
+
+   <ion-item>
+    <ion-label color="primary" stacked>Lastname</ion-label>
+    <ion-input
+      type="text"
+      name="lastname"
+      id="lastname"
+      #lname="ngModel"
+      required minlength="2"
+      [(ngModel)]="lastname"
+      placeholder="Smith">
+    </ion-input>
+  </ion-item>
+
+  <button disabled="{{fname.errors || lname.errors}}" class="submit-btn" ion-button (click)="onSubmit()">
+    Submit
+  </button>
+
+  <small *ngIf="fname.errors && fname.touched && fname.errors.minlength || lname.errors && lname.touched && lname.errors.minlength">
+    Names must be at least 2 characters long.
+  </small>
+
+  <small *ngIf="fname.errors && fname.touched && fname.errors.required || lname.errors && lname.touched && lname.errors.required">
+    Both first and last names are required.
+  </small>
+</ion-content>
