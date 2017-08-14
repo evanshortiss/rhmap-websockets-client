@@ -79,5 +79,5 @@ rm -rf platforms/ios/cordova/node_modules/ios-sim
 Or just use the included script like so to work around it:
 
 ```
-npm run ios-sim
+npm run emulate-ios
 ```
